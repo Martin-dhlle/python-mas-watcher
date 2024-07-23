@@ -2,7 +2,8 @@ import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-from main_scripts.send_mas_affranchissements import prepare_args, send_mas_affranchissements
+from main_scripts.send_mas_affranchissements import send_mas_affranchissements
+from main_scripts.manage_args import prepare_args
 
 
 class NewFileHandler(FileSystemEventHandler):
