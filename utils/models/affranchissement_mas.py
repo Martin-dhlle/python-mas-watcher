@@ -1,4 +1,4 @@
-class Affranchissement:
+class AffranchissementMas:
     index: int
     nom_departement: str
     nom_produit: str

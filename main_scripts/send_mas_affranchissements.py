@@ -10,4 +10,4 @@ def send_mas_affranchissements(file_path: str):
     json_mas = convert_df_to_json_obj(cleaned_mas)
 
     # test logs
-    print(json_mas[0])
+    print(json_mas[0].poids_max)
