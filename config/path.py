@@ -1,0 +1,2 @@
+MAS_DEFAULT_FILE_NAME = "MAS-Affranchissement"
+MAS_FILE_EXTENSION = ".csv"
