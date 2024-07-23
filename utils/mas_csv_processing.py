@@ -1,6 +1,8 @@
 import pandas as pd
+from json import loads
 
 from config.mas_csv_config import COLONNES
+from utils.models.affranchissement import Affranchissement
 
 
 def read_and_clean_mas_csv(mas_file_path: str) -> pd.DataFrame:
@@ -13,3 +15,8 @@ def rename_mas_colums(mas_dataframe: pd.DataFrame) -> pd.DataFrame:
     rename_dict = {col[0]: col[1] for col in COLONNES}
     renamed_mas_dataframe = mas_dataframe.rename(columns=rename_dict)
     return renamed_mas_dataframe
+
+def convert_df_to_json_obj(mas_dataframe: pd.DataFrame) -> list[Affranchissement]:
+    json_mas_data = mas_dataframe.to_json(orient="table")
+    parsed_to_obj: list[Affranchissement] = loads(json_mas_data)["data"]
+    return parsed_to_obj
