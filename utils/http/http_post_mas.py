@@ -6,5 +6,5 @@ from utils.models.affranchissement_mas import AffranchissementMas
 def http_post_mas(json_str: str):
     headers = {'Content-Type': 'application/json'}
     connection = HTTPSConnection(API)
-    connection.request('POST', url='/api/mas', body=json_str)
+    connection.request('POST', url='/mas', headers=headers, body=json_str)
     return

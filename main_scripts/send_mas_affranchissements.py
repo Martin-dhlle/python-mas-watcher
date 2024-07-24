@@ -12,8 +12,8 @@ def send_mas_affranchissements(file_path: str):
         return
     cleaned_mas = read_and_clean_mas_csv(file_path)
     cleaned_mas = rename_mas_colums(cleaned_mas)
-    affranchissements_mas = convert_df_to_json_obj(cleaned_mas)
-    print([{affr_prop: affranchissements_mas[0].__dict__[affr_prop]} for affr_prop in affranchissements_mas[0].__dict__])
-    # if affranchissements_mas correct
+    # affranchissements_mas = convert_df_to_json_obj(cleaned_mas)
+    # print([{affr_prop: affranchissements_mas[0].__dict__[affr_prop]} for affr_prop in affranchissements_mas[0].__dict__])
+    # if affranchissements_mas validation correct
     json_str = convert_df_to_json_str(cleaned_mas)
     http_post_mas(json_str)
