@@ -1,4 +1,3 @@
-
 class AffranchissementMas:
     '''
     La classe qui représente l'objet des données d'un affranchissement
