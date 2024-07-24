@@ -1,2 +1,3 @@
 .venv
 MAS/*
+**/__pycache__
