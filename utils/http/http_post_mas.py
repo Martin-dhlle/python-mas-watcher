@@ -1,6 +1,6 @@
 from http.client import HTTPSConnection
 
-from config.request import API
+from config.request_config import API
 from utils.models.affranchissement_mas import AffranchissementMas
 
 def http_post_mas(json_str: str):

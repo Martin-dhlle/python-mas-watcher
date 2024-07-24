@@ -1,4 +1,4 @@
-from config.path import MAS_DEFAULT_FILE_NAME, MAS_FILE_EXTENSION
+from config.path_config import MAS_DEFAULT_FILE_NAME, MAS_FILE_EXTENSION
 
 
 def get_src_path_to_filename(path: str) -> str:
