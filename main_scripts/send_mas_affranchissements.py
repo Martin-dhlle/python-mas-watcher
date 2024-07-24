@@ -3,6 +3,10 @@ from utils.mas_csv_processing import read_and_clean_mas_csv, rename_mas_colums, 
 
 
 def send_mas_affranchissements(file_path: str):
+    '''
+    Vérifie que le fichier traité est correct puis nettoyage des
+    données csv et conversion en json.
+    '''
     if not file_is_correct(get_src_path_to_filename(file_path)):
         return
     cleaned_mas = read_and_clean_mas_csv(file_path)
@@ -10,4 +14,4 @@ def send_mas_affranchissements(file_path: str):
     json_mas = convert_df_to_json_obj(cleaned_mas)
 
     # test logs
-    print(json_mas[0].poids_max)
+    print(json_mas[0])
