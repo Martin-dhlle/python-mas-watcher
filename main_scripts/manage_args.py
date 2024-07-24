@@ -3,6 +3,9 @@ import argparse
 
 
 def prepare_args() -> argparse.Namespace:
+    '''
+    Récupère et vérifie les arguments passées en ligne de commande
+    '''
     try:
         parser = argparse.ArgumentParser(description='Surveille si un fichier MAS a ete créé puis formatte et envoie les données vers le serveur')
         parser.add_argument('--mas-folder-path', help='Le chemin du repertoire dans lequel sont créés les fichiers MAS. Chemin absolu recommandé')
