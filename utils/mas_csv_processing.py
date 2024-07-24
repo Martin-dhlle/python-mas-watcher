@@ -1,5 +1,5 @@
-from types import SimpleNamespace
 import pandas as pd
+from types import SimpleNamespace
 from json import loads
 
 from config.mas_csv_config import COLONNES
