@@ -1,6 +1,6 @@
 import pandas as pd
 from types import SimpleNamespace
-from json import loads
+from json import loads, dumps
 
 from config.mas_csv_config import COLONNES
 from utils.models.affranchissement_mas import AffranchissementMas
@@ -24,6 +24,15 @@ def rename_mas_colums(mas_dataframe: pd.DataFrame) -> pd.DataFrame:
     rename_dict = {col[0]: col[1] for col in COLONNES}
     renamed_mas_dataframe = mas_dataframe.rename(columns=rename_dict)
     return renamed_mas_dataframe
+
+def convert_df_to_json_str(mas_dataframe: pd.DataFrame) -> str:
+    '''
+    Conversion du DataFrame en format JSON.
+    '''
+    json_mas_data = mas_dataframe.to_json(orient="table")
+    parsed = loads(json_mas_data)["data"]
+    json = dumps(parsed)
+    return json
 
 def convert_df_to_json_obj(mas_dataframe: pd.DataFrame) -> list[AffranchissementMas]:
     '''
