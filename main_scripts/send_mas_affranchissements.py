@@ -1,5 +1,5 @@
 from utils.check_file import file_is_correct, get_src_path_to_filename
-from utils.mas_csv_processing import read_and_clean_mas_csv, rename_mas_colums, convert_df_to_json_obj, convert_df_to_json_str
+from utils.mas_csv_processing import read_and_clean_mas_csv, rename_mas_colums, convert_df_to_json_str, convert_df_to_json_obj
 from utils.http.http_post_mas import http_post_mas
 
 

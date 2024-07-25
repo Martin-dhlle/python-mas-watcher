@@ -14,6 +14,13 @@ def read_and_clean_mas_csv(mas_file_path: str) -> pd.DataFrame:
     with open(mas_file_path, newline='', encoding='utf-8') as csvfile:
         default_mas = pd.read_csv(csvfile, delimiter=';', quotechar='|')
         cleaned_mas = default_mas[[col[0] for col in COLONNES]]
+
+        for col in [COLONNES[2][0], COLONNES[5][0]]:
+            # Replace commas with dots
+            cleaned_mas.loc[:, col] = cleaned_mas[col].str.replace(',', '.')
+            # Convert to float
+            cleaned_mas.loc[:, col] = cleaned_mas[col].astype(float)
+        
         return cleaned_mas
 
 def rename_mas_colums(mas_dataframe: pd.DataFrame) -> pd.DataFrame:
