@@ -1,9 +1,11 @@
-## Surveillance du répertoire afin de détecter l'ajout d'un nouveau fichier MAS
+# Mas affranchissement
 
-## Nettoyage des fichiers csv
+### Surveillance du répertoire afin de détecter l'ajout d'un nouveau fichier MAS
 
-## Envoi des données d'affranchissement MAS vers l'API
+### Nettoyage des fichiers csv
 
-### utilisation du script en background
+### Envoi des données d'affranchissement MAS vers l'API
+
+## utilisation du script en background
 
 `nohup python3 watcher.py --mas-folder-path /chemin/absolu/vers/repertoire/MAS > logs.log &`
