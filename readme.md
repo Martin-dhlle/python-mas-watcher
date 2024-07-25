@@ -1,12 +1,14 @@
 # Affranchissements MAS
 
-### Surveillance du répertoire afin de détecter l'ajout d'un nouveau fichier MAS
+### Surveillance du répertoire afin de détecter l'ajout d'un nouveau fichier MAS :white_check_mark:
+
+### Nettoyage des données CSV :white_check_mark:
+
+### Envoi des données d'affranchissement MAS vers l'API :white_check_mark:
 
 ### Nettoyage automatique du repertoire :x:
 
-### Nettoyage des fichiers csv
-
-### Envoi des données d'affranchissement MAS vers l'API
+---
 
 ## utilisation du script en background
 
