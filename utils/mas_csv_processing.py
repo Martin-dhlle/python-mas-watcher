@@ -14,6 +14,13 @@ def read_and_clean_mas_csv(mas_file_path: str) -> pd.DataFrame:
     with open(mas_file_path, newline='', encoding='utf-8') as csvfile:
         default_mas = pd.read_csv(csvfile, delimiter=';', quotechar='|')
         cleaned_mas = default_mas[[col[0] for col in COLONNES]]
+
+        for col in [COLONNES[2][0], COLONNES[5][0]]:
+            # Replace commas with dots
+            cleaned_mas.loc[:, col] = cleaned_mas[col].str.replace(',', '.')
+            # Convert to float
+            cleaned_mas.loc[:, col] = cleaned_mas[col].astype(float)
+        
         return cleaned_mas
 
 def rename_mas_colums(mas_dataframe: pd.DataFrame) -> pd.DataFrame:
@@ -40,5 +47,9 @@ def convert_df_to_json_obj(mas_dataframe: pd.DataFrame) -> list[Affranchissement
     en dictionnaire.
     '''
     json_mas_data = mas_dataframe.to_json(orient="table")
-    parsed_to_obj: list[AffranchissementMas] = loads(json_mas_data, object_hook=lambda d: SimpleNamespace(**d)).data
+    parsed_to_namespace = loads(json_mas_data, object_hook=lambda d: SimpleNamespace(**d))
+    parsed_to_obj: list[AffranchissementMas] = [
+        AffranchissementMas(**vars(item)) for item in parsed_to_namespace.data
+    ]
+    
     return parsed_to_obj
