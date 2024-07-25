@@ -3,7 +3,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 from main_scripts.send_mas_affranchissements import send_mas_affranchissements
-from main_scripts.manage_args import prepare_args
+from main_scripts.manage_args_env import validate_environment, prepare_args
 
 '''
 Le script principal qui gère les événements du système de fichier.
@@ -22,6 +22,7 @@ class NewFileHandler(FileSystemEventHandler):
             send_mas_affranchissements(event.src_path)
 
 if __name__ == "__main__":
+    validate_environment()
     args = prepare_args() # Récupération des arguments de l'application
     event_handler = NewFileHandler()
     observer = Observer()

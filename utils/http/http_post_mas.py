@@ -6,7 +6,7 @@ def http_post_mas(json_str: str, file_path: str):
     '''
     Requête en post afin de créer des affranchissements MAS
     dans la base de données
-    '''
+    '''        
     headers = {'Content-Type': 'application/json', 'mas-api-key': MAS_API_KEY}
     response = requests.post(f'{API}/mas', headers=headers, data=json_str)
 
