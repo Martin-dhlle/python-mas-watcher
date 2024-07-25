@@ -1,3 +1,6 @@
+from utils.log_entry_generator import generate_log
+
+
 class AffranchissementMas:
     '''
     La classe qui représente l'objet des données d'un affranchissement
@@ -37,6 +40,6 @@ class AffranchissementMas:
         annotations = AffranchissementMas.__annotations__
         for attribute, expected_type in annotations.items():
             if not isinstance(getattr(affranchissement_mas, attribute), expected_type):
-                print(f"Validation failed on {attribute}. {expected_type.__name__} expected.")
+                generate_log(1, 5, f"{attribute}. {expected_type.__name__}")
                 return False
         return True

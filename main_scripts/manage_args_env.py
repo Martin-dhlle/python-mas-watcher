@@ -2,6 +2,7 @@ import sys
 import argparse
 
 from config.request_config import MAS_API_KEY, API
+from utils.log_entry_generator import generate_log
 
 
 def prepare_args() -> argparse.Namespace:
@@ -15,7 +16,7 @@ def prepare_args() -> argparse.Namespace:
         if(not args.mas_folder_path):
             raise argparse.ArgumentError(
                 argument=args.mas_folder_path,
-                message="Le chemin vers le répertoire du MAS n'est pas sépcifié\n --mas-folder-path <chemin du repertoire MAS>"
+                message="Le chemin vers le répertoire du MAS n'est pas spécifié\n --mas-folder-path <chemin du repertoire MAS>"
             )
         return args
     except argparse.ArgumentError as e:
@@ -33,6 +34,6 @@ def validate_environment():
     missing_vars = [name for name, value in env_vars_to_check.items() if value is None]
     if len(missing_vars) > 0:
         missing_vars_str = ", ".join(missing_vars)
-        print(f"Variables d'environnement {missing_vars_str} manquantes")
+        generate_log(1, 2, missing_vars_str)
         sys.exit()
     pass

@@ -1,6 +1,7 @@
 import requests
 
 from config.request_config import API, MAS_API_KEY
+from utils.log_entry_generator import generate_log
 
 def http_post_mas(json_str: str, file_path: str):
     '''
@@ -11,6 +12,6 @@ def http_post_mas(json_str: str, file_path: str):
     response = requests.post(f'{API}/mas', headers=headers, data=json_str)
 
     if response.ok:
-        print(f"Les données du fichier d'affranchissements MAS {file_path} ont bien été sauvegardés")
+        generate_log(0, 3, file_path)
     else:
-        print(f"erreur status code : {response.status_code}")
+        generate_log(1, 4, response.status_code)
