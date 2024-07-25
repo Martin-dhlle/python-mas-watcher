@@ -1,6 +1,8 @@
-# Mas affranchissement
+# Affranchissements MAS
 
 ### Surveillance du répertoire afin de détecter l'ajout d'un nouveau fichier MAS
+
+### Nettoyage automatique du repertoire :x:
 
 ### Nettoyage des fichiers csv
 
