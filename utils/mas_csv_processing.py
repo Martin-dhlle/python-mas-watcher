@@ -15,10 +15,12 @@ def read_and_clean_mas_csv(mas_file_path: str) -> pd.DataFrame:
         default_mas = pd.read_csv(csvfile, delimiter=';', quotechar='|')
         cleaned_mas = default_mas[[col[0] for col in COLONNES]]
 
+        cleaned_mas = cleaned_mas.map(lambda x: x.replace('"', '').lower() if (isinstance(x, str)) else x)
+
         for col in [COLONNES[2][0], COLONNES[5][0]]:
-            # Replace commas with dots
+            # Remplace les virgules par des points
             cleaned_mas.loc[:, col] = cleaned_mas[col].str.replace(',', '.')
-            # Convert to float
+            # Convertit en type float
             cleaned_mas.loc[:, col] = cleaned_mas[col].astype(float)
         
         return cleaned_mas

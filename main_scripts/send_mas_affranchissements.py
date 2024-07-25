@@ -14,6 +14,7 @@ def send_mas_affranchissements(file_path: str):
     cleaned_mas = read_and_clean_mas_csv(file_path)
     cleaned_mas = rename_mas_colums(cleaned_mas)
     affranchissements_mas = convert_df_to_json_obj(cleaned_mas)
+    print(affranchissements_mas[0].nom_departement)
     affranchissements_mas_is_valid = len([AffranchissementMas.validate(affr) for affr in affranchissements_mas if affr is False]) <= 0
     if(affranchissements_mas_is_valid):
         json_str = convert_df_to_json_str(cleaned_mas)
