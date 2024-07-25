@@ -47,5 +47,9 @@ def convert_df_to_json_obj(mas_dataframe: pd.DataFrame) -> list[Affranchissement
     en dictionnaire.
     '''
     json_mas_data = mas_dataframe.to_json(orient="table")
-    parsed_to_obj: list[AffranchissementMas] = loads(json_mas_data, object_hook=lambda d: SimpleNamespace(**d)).data
+    parsed_to_namespace = loads(json_mas_data, object_hook=lambda d: SimpleNamespace(**d))
+    parsed_to_obj: list[AffranchissementMas] = [
+        AffranchissementMas(**vars(item)) for item in parsed_to_namespace.data
+    ]
+    
     return parsed_to_obj
